@@ -62,7 +62,6 @@ $(function(){
     var intervalID = null;
     
     function intervalIde(){
-        console.log(inIde);
         if(intervalID!=null)
             clearInterval(intervalID);
         intervalID = setInterval(ideCode,inIde ? 10000 : 2000);
@@ -70,10 +69,8 @@ $(function(){
     
     var ideCode = function(){
         if(!inIde && $(".ide").length>0){
-            console.log("enter");
-            $($('.menu-entries.ps-container')[0]).append('<div class="menu-entry ng-scope copy" ng-class="entry.name"><a class="menu-entry-inner" id="namalCopy"><span class="entry-label">Copy</span></a></div>');
+            $($('.menu-entries.ps-container')[0]).append('<div class="menu-entry ng-scope copy"><a class="menu-entry-inner" id="namalCopy"><span class="entry-label">Copy</span></a></div>');
             $("#namalCopy").click(function(){
-                console.log($('.cg-ide-console-frame-container').text());
                 copyToClipboard($(".cg-ide-console-frame-container"));
                 
             });
