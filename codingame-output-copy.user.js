@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Codingame output copy
 // @namespace    https://namal.ovh
-// @version      0.2
+// @version      0.3
 // @description  Allows you to copy the output of a test case in codingame
 // @author       Namal
 // @match        https://www.codingame.com/*
