@@ -67,18 +67,25 @@ $(function(){
         intervalID = setInterval(ideCode,inIde ? 10000 : 2000);
     }
     
+    function setupCopy(){
+        $($('.menu-entries.ps-container')[0]).append('<div class="menu-entry ng-scope copy"><a class="menu-entry-inner" id="namalCopy"><span class="entry-label">Copy</span></a></div>');
+        $("#namalCopy").click(function(){
+            copyToClipboard($(".cg-ide-console-frame-container"));
+
+        });
+        inIde=true;
+        intervalIde();
+
+    }
     var ideCode = function(){
-        if(!inIde && $(".ide").length>0){
-            $($('.menu-entries.ps-container')[0]).append('<div class="menu-entry ng-scope copy"><a class="menu-entry-inner" id="namalCopy"><span class="entry-label">Copy</span></a></div>');
-            $("#namalCopy").click(function(){
-                copyToClipboard($(".cg-ide-console-frame-container"));
-                
-            });
-            inIde=true;
-            intervalIde();
-        }else if(inIde && $(".ide").length==0){
-            inIde=false;
-            intervalIde();
+        if(!inIde && $(".ide").length>0)
+            setupCopy()
+        else if(inIde){
+            if($(".ide").length==0){
+                inIde=false;
+                intervalIde();
+            }else if($("#namalCopy"))
+                setupCopy();
         }
 
     };
