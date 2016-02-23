@@ -84,7 +84,7 @@ $(function(){
             if($(".ide").length==0){
                 inIde=false;
                 intervalIde();
-            }else if($("#namalCopy"))
+            }else if($("#namalCopy").length==0)
                 setupCopy();
         }
 
